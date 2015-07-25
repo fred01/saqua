@@ -10,7 +10,7 @@ Originally `saqua` - a fancy alcohol drink from Endmond Hamilton's cosmic opera 
 ## Example usage
 
 Initializing 
-```
+```java
 public class App extends Application {
   ...
   // Init DB Queue factory, must be performed before obtained first queue  
@@ -20,8 +20,7 @@ public class App extends Application {
 ```
 
 Produce messages
-```
-
+```java
 public void storeDocument(Document docToStore) {
     SimpleDBQueue backupQueue = SimpleDBQueueFactory.getQueue("backup_documents");
     backupQueue.push(docToStore, ImmutableMap.of("collection", backupCollection));
@@ -33,7 +32,7 @@ public void storeDocument(Document docToStore) {
 
 
 Consume messages
-```
+```java
 public class BackupDocumentsService extends AsyncTask {
   @Override
   protected Object doInBackground(Object[] params) {
